@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLoginUserMutation } from "../redux/features/auth/authApi";
 import { useDispatch } from "react-redux";
 import { setUser } from "../redux/features/auth/authSlice";
+import OAuth from "../components/oauth/OAuth";
 
 export default function Login() {
   const [formData, setFormData] = useState({});
@@ -51,6 +52,7 @@ export default function Login() {
         <button className="bg-slate-700 text-white p-3 rounded-lg hover:opacity-95 uppercase disabled:opacity-80">
           {isLoading ? "Loading" : "Login"}
         </button>
+        <OAuth />
       </form>
       <div className="mt-5">
         <p className="">
