@@ -85,7 +85,6 @@ const google = async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  res.send("google");
 };
 
 module.exports = { register, login, google };
