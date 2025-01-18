@@ -11,8 +11,8 @@ const verifyToken = require("../middleware/verifyToken");
 const router = express.Router();
 
 router.put("/:id", verifyToken, updateUser);
-router.delete("/:id", deleteUser);
-router.post("/logout", logoutUser);
+router.delete("/:id", verifyToken, deleteUser);
+router.post("/logout", verifyToken, logoutUser);
 router.get("/:id", getUser);
 router.get("/total-users", getTotalUsers);
 router.get("/users", getUsers);
