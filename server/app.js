@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const authRouter = require("./routes/authRoute");
 const userRouter = require("./routes/userRoute");
+const listingRouter = require("./routes/listingRoute");
 
 const port = process.env.PORT || 3000;
 const mongo_url = `${process.env.mongo_uri}`;
@@ -15,6 +16,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/listing", listingRouter);
 
 const connect = async () => {
   try {

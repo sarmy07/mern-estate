@@ -23,6 +23,7 @@ const updateUser = async (req, res) => {
     const { password: pass, ...rest } = updatedUser._doc;
     return res.status(200).json(rest);
   } catch (error) {
+    res.status(500).json("Error updating user", error);
     console.log(error);
   }
 };
@@ -32,9 +33,7 @@ const deleteUser = async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(userId);
     if (!user) return res.status(404).json("No user found");
-    res.clearCookie("token", {
-      httpOnly: true,
-    });
+    res.clearCookie("token");
     return res.status(200).json("User deleted!");
   } catch (error) {
     res.status(500).json("Error deleteing user", error);
