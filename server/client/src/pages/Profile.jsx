@@ -13,7 +13,7 @@ import {
   useUpdateUserMutation,
 } from "../redux/features/user/userApi";
 import { logout, setUser } from "../redux/features/auth/authSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -167,6 +167,13 @@ export default function Profile() {
         >
           {isLoading ? "Updating" : "Update"}
         </button>
+
+        <Link
+          to={"/create-listing"}
+          className="bg-green-700 text-white uppercase p-3 text-center rounded-lg hover:opacity-95"
+        >
+          create listing
+        </Link>
       </form>
       <div className="flex justify-between my-5">
         <span
